@@ -1,0 +1,138 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzCollapsedWidth]="0"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Ant Design Of Angular</h1>
+    </div>
+    <!-- <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">Welcome</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Monitor</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Workplace</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>Basic Form</a>
+          </li>
+        </ul>
+      </li>
+    </ul> -->
+
+
+    <ul nz-menu nzMode="inline"  nzTheme="dark" style="width: 240px;">
+      <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menus }"></ng-container>
+      <ng-template #menuTpl let-menus>
+        <ng-container *ngFor="let menu of menus">
+          <li
+            *ngIf="!menu.children"
+            nz-menu-item
+            [nzPaddingLeft]="menu.level * 24"
+            [nzDisabled]="menu.disabled"
+            [nzSelected]="menu.selected"
+            [routerLink]='menu.routerLink'
+
+          >
+            <i nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></i>
+            <span>{{ menu.title }}</span>
+          </li>
+          <li
+            *ngIf="menu.children"
+            nz-submenu
+            [nzPaddingLeft]="menu.level * 24"
+            [nzOpen]="menu.open"
+            [nzTitle]="menu.title"
+            [nzIcon]="menu.icon"
+            [nzDisabled]="menu.disabled"
+            [routerLink]='menu.routerLink'
+          >
+            <ul>
+              <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menu.children }"></ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ng-template>
+    </ul>
+
+
+
+
+
+  </nz-sider>
+
+
+  <nz-layout>
+
+    <nz-header>
+      <div class="app-header">
+
+
+
+        <div nz-row>
+          <div nz-col nzXs="3" nzSm="3" nzMd="3" nzLg="3" nzXl="3">
+
+            <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" ></i>
+          </span>
+
+          </div>
+          <div nz-col nzXs="16" nzSm="16" nzMd="16" nzLg="16" nzXl="16">
+            Col
+          </div>
+          <div nz-col nzXs="5" nzSm="5" nzMd="5" nzLg="5" nzXl="5" style="padding: 1px !important;text-align: right;padding-right:10px !important;">
+
+
+            <button nzBlock =true style="display: inline-block !important;" nz-button nz-dropdown [nzDropdownMenu]="menu"> <span class="button-span">Settings</span><i nz-icon nzType="setting"></i></button>
+
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <a><i nz-icon nzType="logout" nzTheme="outline"></i> Log out</a>
+                </li>
+                <li nz-menu-item>
+                  <a><i nz-icon nzType="rest" nzTheme="outline"></i> Password Change</a>
+                </li>
+                <li nz-menu-item>
+                  <a><i nz-icon nzType="alibaba" nzTheme="outline"></i> About</a>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+    </nz-header>
+
+
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

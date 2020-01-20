@@ -1,0 +1,62 @@
+nz-header,
+nz-footer {
+  background: #7dbcea;
+  color: #fff;
+  text-align: center !important;
+}
+nz-footer {
+  line-height: 1.5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+nz-header{
+  font-size: 28px !important;
+  font-weight:bold !important;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  nz-header{
+    font-size: 8px !important;
+    font-weight:bold !important;
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  nz-header{
+    font-size: 8px !important;
+    font-weight:bold !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  nz-header{
+    font-size: 12px !important;
+    font-weight:bold !important;
+  }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  nz-header{
+    font-size: 22px !important;
+    font-weight:bold !important;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  nz-header{
+    font-size: 28px !important;
+    font-weight:bold !important;
+  }
+}
+
+

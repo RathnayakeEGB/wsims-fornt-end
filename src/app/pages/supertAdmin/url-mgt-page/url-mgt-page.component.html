@@ -1,0 +1,272 @@
+
+ <form [formGroup]="urlMgt">
+
+    <div nz-row>
+
+
+      <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+
+
+        <nz-divider nzDashed [nzText]="text">
+          <ng-template #text><i nz-icon nzType="plus"></i> Manage System Pages And Urls</ng-template>
+        </nz-divider>
+
+
+
+      </div>
+
+
+    </div>
+
+    <div nz-row>
+
+
+
+
+      <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
+
+
+        <nz-form-item  class="form-item">
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="urlLevel">Url Level</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid Url Level !">
+
+                <nz-select   formControlName="level" (ngModelChange)	="UrlLevelChange($event)" nzAllowClear nzShowSearch nzServerSearch  class="cmb" >
+                  <ng-container *ngFor="let o of urlLevels">
+                    <nz-option *ngIf="!isLoading" [nzValue]="o.LevelCode" [nzLabel]="o.description"></nz-option>
+                  </ng-container>
+                  <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
+                    <i nz-icon nzType="loading" class="loading-icon"></i> Loading Data...
+                  </nz-option>
+                </nz-select>
+
+          </nz-form-control>
+        </nz-form-item>
+
+
+        <nz-form-item class="form-item">
+          <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="icoLocation">Icon Location</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+            <input nz-input formControlName="icoLocation" id="icoLocation" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="form-item">
+          <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="mainLink"> Main Link</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+
+            <nz-select formControlName="mainLink" id="mainLink" style="width: 100% !important;">
+              <nz-option *ngFor="let option of Mainmenus" [nzLabel]="option.title" [nzValue]="option"></nz-option>
+              <nz-option nzLabel="option" nzValue="option" nzHide></nz-option>
+            </nz-select>
+
+          </nz-form-control>
+        </nz-form-item>
+
+
+        <nz-form-item  class="form-item">
+          <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="subLink">Sub Link</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not subLink">
+
+                <nz-select   formControlName="subLink"  id="subLink" nzAllowClear nzShowSearch nzServerSearch  class="cmb" >
+                  <ng-container *ngFor="let o of subList">
+                    <nz-option *ngIf="!isLoading" [nzValue]="o" [nzLabel]="o.title"></nz-option>
+                  </ng-container>
+                  <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
+                    <i nz-icon nzType="loading" class="loading-icon"></i> Loading Data...
+                  </nz-option>
+                </nz-select>
+
+          </nz-form-control>
+        </nz-form-item>
+
+
+
+      </div>
+      <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
+
+
+        <nz-form-item class="form-item">
+          <nz-form-label [nzSm]="6" [nzXs]="24"   nzFor="icon">Icon</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid icon !">
+            <input nz-input formControlName="icon" id="icon" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="form-item">
+          <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="title">Description</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+            <input nz-input formControlName="title" id="title" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item class="form-item">
+          <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="routerLink">Router Link</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid routerLink !">
+            <input nz-input formControlName="routerLink" id="routerLink" />
+          </nz-form-control>
+        </nz-form-item>
+
+
+        <nz-form-item class="form-item">
+
+
+          <div nz-row>
+            <div nz-col nzXs="12" nzSm="12" nzMd="12" nzLg="12" nzXl="12">
+
+
+            </div>
+            <div nz-col nzXs="6" nzSm="6" nzMd="6" nzLg="6" nzXl="6" style="padding: 5px;">
+
+              <button [disabled]="!urlMgt.valid"  nz-button nzType="primary" [nzBlock]=true (click)='createNewLink()'	><i nz-icon nzType="save"></i>Save</button>
+
+
+            </div>
+
+            <div nz-col nzXs="6" nzSm="6" nzMd="6" nzLg="6" nzXl="6" style="padding: 5px;">
+
+              <button nz-button nzType="dashed" [nzBlock]=true 	><i nz-icon nzType="user"></i>Clear</button>
+
+            </div>
+
+          </div>
+
+
+
+        </nz-form-item>
+
+
+      </div>
+
+
+
+    </div>
+
+    <div nz-row>
+
+      <nz-divider nzDashed [nzText]="textz">
+        <ng-template #textz><i nz-icon nzType="plus"></i> Other information</ng-template>
+      </nz-divider>
+
+      <nz-card style="width:100% !important;">
+
+
+
+        <div nz-row>
+          <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
+
+
+
+            <nz-form-item class="form-item">
+              <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="email">Open</nz-form-label>
+              <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+
+
+                <nz-radio-group formControlName='open'>
+                  <label nz-radio nzValue="true">True</label>
+                  <label nz-radio nzValue="false">False</label>
+
+                </nz-radio-group>
+
+
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item class="form-item">
+              <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="email">Disable</nz-form-label>
+              <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+
+
+                <nz-radio-group formControlName ="disabled">
+                  <label nz-radio nzValue="true">True</label>
+                  <label nz-radio nzValue="false">False</label>
+
+                </nz-radio-group>
+
+
+              </nz-form-control>
+            </nz-form-item>
+
+
+          </div>
+
+          <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
+
+
+
+            <nz-form-item class="form-item">
+              <nz-form-label [nzSm]="6" [nzXs]="24"  nzFor="email">Selected</nz-form-label>
+              <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+
+
+                <nz-radio-group formControlName='selected'>
+                  <label nz-radio nzValue="true">True</label>
+                  <label nz-radio nzValue="false">False</label>
+
+                </nz-radio-group>
+
+
+              </nz-form-control>
+            </nz-form-item>
+
+
+          </div>
+
+        </div>
+
+
+
+
+      </nz-card>
+
+
+
+    </div>
+
+    <br>
+
+    <div nz-row>
+
+
+<!--
+      <nz-table
+      #rowSelectionTable
+      nzShowSizeChanger
+      [nzData]="listOfAllData"
+      (nzCurrentPageDataChange)="currentPageDataChange($event)"
+    >
+      <thead>
+        <tr>
+          <th
+            nzShowCheckbox
+            nzShowRowSelection
+            [nzSelections]="listOfSelection"
+            [(nzChecked)]="isAllDisplayDataChecked"
+            [nzIndeterminate]="isIndeterminate"
+            (nzCheckedChange)="checkAll($event)"
+          ></th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of rowSelectionTable.data">
+          <td nzShowCheckbox [(nzChecked)]="mapOfCheckedId[data.id]" (nzCheckedChange)="refreshStatus()"></td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+        </tr>
+      </tbody>
+    </nz-table> -->
+
+
+
+    </div>
+
+  </form>
+
+
+
+
+
+
