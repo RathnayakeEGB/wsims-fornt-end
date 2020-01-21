@@ -84,6 +84,8 @@
 // ICONFONT
 @iconfont-css-prefix: anticon;
 
+// @ic
+
 // LINK
 @link-color: @primary-color;
 @link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
@@ -399,7 +401,7 @@
 @menu-item-active-bg: @item-active-bg;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
-@menu-icon-size: @font-size-base;
+@menu-icon-size: 31px;
 @menu-icon-size-lg: @font-size-lg;
 
 @menu-item-vertical-margin: 4px;
@@ -537,7 +539,7 @@
 @avatar-size-sm: 24px;
 @avatar-font-size-base: 18px;
 @avatar-font-size-lg: 24px;
-@avatar-font-size-sm: 14px;
+@avatar-font-size-sm: 14px; ///
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
@@ -680,4 +682,9 @@
 // Typography
 // ---
 @typography-title-font-weight: 600;
+
+
+.ant-menu-item .anticon, .ant-menu-submenu-title .anticon{
+  font-size: 31px !important;
+}
 

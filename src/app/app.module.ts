@@ -22,6 +22,9 @@ import { RouteReuseStrategy } from '@angular/router';
 import { UserHomePageComponent } from './pages/user-mgt/user-home-page/user-home-page.component';
 import { UserGroupPageComponent } from './pages/user-mgt/user-group-page/user-group-page.component';
 import { UserMgtPageComponent } from './pages/user-mgt/user-mgt-page/user-mgt-page.component';
+import { CustomerGroupPageComponent } from './pages/customers-mgt/customer-group-page/customer-group-page.component';
+import { CustomerHomePageComponent } from './pages/customers-mgt/customer-home-page/customer-home-page.component';
+import { CustomerMgtPageComponent } from './pages/customers-mgt/customer-mgt-page/customer-mgt-page.component';
 
 
 registerLocaleData(en);
@@ -34,7 +37,10 @@ registerLocaleData(en);
     UrlMgtPageComponent,
     UserHomePageComponent,
     UserGroupPageComponent,
-    UserMgtPageComponent
+    UserMgtPageComponent,
+    CustomerGroupPageComponent,
+    CustomerHomePageComponent,
+    CustomerMgtPageComponent
 
 
   ],
