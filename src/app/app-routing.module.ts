@@ -8,6 +8,8 @@ import { UserHomePageComponent } from './pages/user-mgt/user-home-page/user-home
 import { UserMgtPageComponent } from './pages/user-mgt/user-mgt-page/user-mgt-page.component';
 import { UserGroupPageComponent } from './pages/user-mgt/user-group-page/user-group-page.component';
 import { CustomerHomePageComponent } from './pages/customers-mgt/customer-home-page/customer-home-page.component';
+import { CustomerMgtPageComponent } from './pages/customers-mgt/customer-mgt-page/customer-mgt-page.component';
+import { CustomerGroupPageComponent } from './pages/customers-mgt/customer-group-page/customer-group-page.component';
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: 'user-group-mgt', component: UserGroupPageComponent },
       {path:'customer-mgt',redirectTo: 'cutomer-home',pathMatch:'full'},
       { path: 'cutomer-home', component: CustomerHomePageComponent },
+      { path: 'cutomer-management', component: CustomerMgtPageComponent },
+      { path: 'cutomer-group-management', component: CustomerGroupPageComponent},
 
 
 

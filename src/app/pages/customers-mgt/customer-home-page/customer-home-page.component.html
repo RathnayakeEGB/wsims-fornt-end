@@ -1,18 +1,36 @@
 <div style="background: #ECECEC;padding:30px;">
   <div nz-row [nzGutter]="8">
     <div nz-col [nzSpan]="8">
-      <nz-card nzTitle="Card title">
-        <p>Card content</p>
+      <nz-card class="options" >
+
+
+        <i nz-icon class='icon' (click)='mangeCustomers()' nzType="img:customers"></i>
+        <nz-divider class="title" nzText="Mange Customers"></nz-divider>
+
+
+
       </nz-card>
     </div>
     <div nz-col [nzSpan]="8">
-      <nz-card nzTitle="Card title">
-        <p>Card content</p>
+
+      <nz-card  class='options'>
+
+
+        <i nz-icon class='icon' (click)='mangeCustomerGroup()' nzType="img:Group"></i>
+        <nz-divider class="title" nzText="Mange Customer Group"></nz-divider>
+
+
+
       </nz-card>
+
     </div>
-    <div nz-col [nzSpan]="8">
-      <nz-card nzTitle="Card title">
-        <p>Card content</p>
+    <div nz-col [nzSpan]="8" >
+      <nz-card  class='options'>
+
+        <i nz-icon class='icon' (click)='backToHome()' nzType="img:home"></i>
+        <nz-divider class="title" nzText="Back To Home"></nz-divider>
+
+
       </nz-card>
     </div>
   </div>
@@ -21,20 +39,45 @@
 <br>
 
 <div style="background: #ECECEC;padding:30px;">
+
+  <nz-alert style="text-align: center; font-size: 24px !important;" class="alert" nzType="success" nzMessage="Customer Genaral Information"></nz-alert><br>
+
+
   <div nz-row [nzGutter]="8">
     <div nz-col [nzSpan]="8">
-      <nz-card nzTitle="Card title">
-        <p>Card content</p>
+      <nz-card class='options' >
+
+        <nz-badge [nzCount]="789" style="margin-right: 24px;">
+          <i nz-icon class='icon' nzType="img:customers"></i>
+        </nz-badge>
+
+        <nz-divider class="title" nzText="Number Of Active Customers"></nz-divider>
+
       </nz-card>
     </div>
     <div nz-col [nzSpan]="8">
-      <nz-card nzTitle="Card title">
-        <p>Card content</p>
+      <nz-card class='options'>
+
+        <nz-badge [nzCount]="789" style="margin-right: 24px;">
+          <i nz-icon class='icon' nzType="img:customers"></i>
+        </nz-badge>
+
+        <nz-divider class="title" nzText="Number Of Active Customers"></nz-divider>
+
+
       </nz-card>
     </div>
     <div nz-col [nzSpan]="8">
-      <nz-card nzTitle="Card title">
-        <p>Card content</p>
+      <nz-card class='options'>
+
+
+        <nz-badge [nzCount]="789" style="margin-right: 24px;">
+          <i nz-icon class='icon' nzType="img:customers"></i>
+        </nz-badge>
+
+        <nz-divider class="title" nzText="Number Of Active Customers"></nz-divider>
+
+
       </nz-card>
     </div>
   </div>
