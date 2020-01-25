@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-mgt-page',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerMgtPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+
+  backToHome(){
+
+    this.router.navigate(['/home-page/customer-mgt'])
+
+  }
+
+  backToMain(){
+    this.router.navigate(['/home-page'])
+
   }
 
 }

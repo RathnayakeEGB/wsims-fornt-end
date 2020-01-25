@@ -15,3 +15,36 @@ body, html {
 {
   width: 100% !important;
 }
+
+/*
+    Css
+*/
+
+.back-home{
+  font-size: 78px !important;
+}
+
+.back-home:hover{
+  color: brown !important;
+  cursor: pointer !important;
+}
+
+.icon{
+
+  font-size: 100px !important;
+
+}
+.option{
+  text-align: center !important;
+}
+
+.icon:hover{
+  cursor: pointer !important;
+  color: sienna !important;
+  transform: rotateY(180deg);
+}
+
+.form-item{
+  margin: 0px !important;
+}
+

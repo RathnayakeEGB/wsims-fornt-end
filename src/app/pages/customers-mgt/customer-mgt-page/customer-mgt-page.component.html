@@ -1,1 +1,150 @@
-<p>customer-mgt-page works!</p>
+<div nz-row>
+
+  <div nz-col nzXs="3" class="option" nzSm="3" nzMd="3" nzLg="3" nzXl="3">
+
+    <i nz-icon (click)='backToHome()' class='back-home' nzType="img:left"></i>
+
+
+  </div>
+
+  <div nz-col nzXs="18" class="option" nzSm="18" nzMd="18" nzLg="18" nzXl="18">
+
+    <i nz-icon class='icon' nzType="img:customer-list"></i>
+    <nz-divider class="title" nzText="Mange Customers"></nz-divider>
+
+  </div>
+
+  <div nz-col nzXs="3" class="option" nzSm="3" nzMd="3" nzLg="3" nzXl="3">
+
+    <i nz-icon (click)='backToMain()' class='back-home' nzType="img:page-home"></i>
+
+  </div>
+
+
+</div>
+
+
+<div nz-row>
+
+  <!-- <nz-card class="card-image2" style="width:100%" >
+
+    <nz-avatar class="image2 image-only2"  nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+
+
+
+  </nz-card> -->
+
+  <div nz-col nzXs="24" nzSm="24" nzMd="18" nzLg="18" nzXl="18">
+
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+
+  </div>
+
+  <div nz-col nzXs="24" nzSm="24" nzMd="6" nzLg="6" nzXl="6">
+
+     <nz-card class="card-image2" style="width:100%" >
+
+    <nz-avatar class="image2 image-only2"  nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+
+    <br><br>
+
+    <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+      <button nz-button><i nz-icon nzType="upload"></i><span>Select File</span></button>
+    </nz-upload>
+
+     </nz-card>
+
+  </div>
+
+
+</div>
+
+
+
+<div nz-row>
+  <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+  </div>
+  <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="cemail">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+  </div>
+
+</div>
+

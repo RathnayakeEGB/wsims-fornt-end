@@ -1,10 +1,25 @@
 <div nz-row>
-  <div nz-col nzXs="24" class="option" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+
+  <div nz-col nzXs="3" class="option" nzSm="3" nzMd="3" nzLg="3" nzXl="3">
+
+    <i nz-icon (click)='backToHome()' class='back-home' nzType="img:left"></i>
+
+
+  </div>
+
+  <div nz-col nzXs="18" class="option" nzSm="18" nzMd="18" nzLg="18" nzXl="18">
 
     <i nz-icon class='icon' nzType="img:Group"></i>
     <nz-divider class="title" nzText="Mange Customer Groups"></nz-divider>
 
   </div>
+
+  <div nz-col nzXs="3" class="option" nzSm="3" nzMd="3" nzLg="3" nzXl="3">
+
+    <i nz-icon (click)='backToMain()' class='back-home' nzType="img:page-home"></i>
+
+  </div>
+
 
 </div>
 
@@ -12,17 +27,17 @@
   <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="12">
 
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input formControlName="email" id="email" />
+        <input nz-input id="email" />
       </nz-form-control>
     </nz-form-item>
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Description</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input formControlName="email" id="email" />
+        <input nz-input  id="email" />
       </nz-form-control>
     </nz-form-item>
 
@@ -30,17 +45,24 @@
   </div>
   <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="12">
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Description</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input formControlName="email" id="email" />
+        <input nz-input id="email" />
       </nz-form-control>
     </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Description</nz-form-label>
+    <nz-form-item class="form-item">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Status</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input formControlName="email" id="email" />
+
+
+        <nz-radio-group >
+          <label nz-radio nzValue="A">Active</label>
+          <label nz-radio nzValue="B">Inactive</label>
+        </nz-radio-group>
+
+
       </nz-form-control>
     </nz-form-item>
 
@@ -48,4 +70,78 @@
   </div>
 </div>
 
+<nz-divider class="title"></nz-divider>
+
+<div nz-row>
+  <div nz-col nzXs="24" nzSm="24" nzMd="18" nzLg="18" nzXl="18">
+
+  </div>
+  <div nz-col nzXs="24" style="padding: 3px !important;" nzSm="24" nzMd="3" nzLg="3" nzXl="3">
+
+    <button nzBlock ='true' nz-button nzType="primary"><i nz-icon nzType="img:save"></i>Save</button>
+
+
+  </div>
+  <div nz-col nzXs="24" style="padding: 3px !important;" nzSm="24" nzMd="3" nzLg="3" nzXl="3">
+
+    <button nzBlock ='true' nz-button nzType="default"><i nz-icon nzType="img:clear"></i>Clear</button>
+
+  </div>
+</div>
+
+
+
 <nz-divider class="title" nzText="Existing Customer Groups"></nz-divider>
+
+<div nz-row>
+
+  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
+
+    <nz-table #nzTable [nzData]="listOfDisplayData" nzPageSize =7>
+      <thead>
+        <tr>
+          <th nzCustomFilter>
+            Customer Group No
+            <i  nz-th-extra
+              class="ant-table-filter-icon"
+              nz-icon
+              nz-dropdown
+              #dropdown="nzDropdown"
+              nzType="search"
+              [nzDropdownMenu]="menu"
+              [class.ant-table-filter-open]="dropdown.nzVisible"
+              nzTrigger="click"
+              nzPlacement="bottomRight"
+              [nzClickHide]="false"
+              nzTableFilter
+            ></i>
+          </th>
+          <th>Customer Group Name </th>
+          <th   >Description</th>
+          <th   >Status</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of nzTable.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <div class="search-box">
+        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+        <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+          Search
+        </button>
+        <button nz-button nzSize="small" (click)="reset()">Reset</button>
+      </div>
+    </nz-dropdown-menu>
+
+
+
+  </div>
+
+</div>
