@@ -24,20 +24,25 @@
 </div>
 
 <div nz-row>
+
+  <form nz-form [formGroup]="customerGroupFb" >
+
+
+
   <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="12">
 
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Group No</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="customerGroupNo">Customer Group No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Customer Group No !">
+        <input style="color: brown !important;" nz-input formControlName='customerGroupNo' id="customerGroupNo" disabled="true" />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Description</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input  id="email" />
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="customerGroupName">Cus Group Name</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Customer Group Name !">
+        <input nz-input formControlName='customerGroupName' id="customerGroupName" />
       </nz-form-control>
     </nz-form-item>
 
@@ -46,20 +51,20 @@
   <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="12" nzXl="12">
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Description</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="8" [nzXs]="24"  nzFor="description">Description</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Description!">
+        <input nz-input formControlName='description'  id="description" />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Status</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="isActive">Status</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Status !">
 
 
-        <nz-radio-group >
+        <nz-radio-group formControlName='isActive' >
           <label nz-radio nzValue="A">Active</label>
-          <label nz-radio nzValue="B">Inactive</label>
+          <label nz-radio nzValue="I">Inactive</label>
         </nz-radio-group>
 
 
@@ -67,28 +72,36 @@
     </nz-form-item>
 
 
+
   </div>
+</form>
 </div>
+
+<!-- {{customerGroupFb.value|json}}
+<br>
+{{customerGroupFb.valid}} -->
+
 
 <nz-divider class="title"></nz-divider>
 
 <div nz-row>
+
+
   <div nz-col nzXs="24" nzSm="24" nzMd="18" nzLg="18" nzXl="18">
 
   </div>
   <div nz-col nzXs="24" style="padding: 3px !important;" nzSm="24" nzMd="3" nzLg="3" nzXl="3">
 
-    <button nzBlock ='true' nz-button nzType="primary"><i nz-icon nzType="img:save"></i>Save</button>
+  <button [disabled]='!customerGroupFb.valid'  (click)='createNewCustomerGroup()' nzBlock ='true' nz-button nzType="primary"><i nz-icon nzType="img:save"></i>{{saveButtonText}}</button>
 
 
   </div>
   <div nz-col nzXs="24" style="padding: 3px !important;" nzSm="24" nzMd="3" nzLg="3" nzXl="3">
 
-    <button nzBlock ='true' nz-button nzType="default"><i nz-icon nzType="img:clear"></i>Clear</button>
+    <button  (click)='clear()' nzBlock ='true' nz-button nzType="default"><i nz-icon nzType="img:clear"></i>Clear</button>
 
   </div>
 </div>
-
 
 
 <nz-divider class="title" nzText="Existing Customer Groups"></nz-divider>
@@ -97,25 +110,10 @@
 
   <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
 
-    <nz-table #nzTable [nzData]="listOfDisplayData" nzPageSize =7>
+    <nz-table #nzTable [nzData]="getAllCusGroup" nzPageSize =3>
       <thead>
         <tr>
-          <th nzCustomFilter>
-            Customer Group No
-            <i  nz-th-extra
-              class="ant-table-filter-icon"
-              nz-icon
-              nz-dropdown
-              #dropdown="nzDropdown"
-              nzType="search"
-              [nzDropdownMenu]="menu"
-              [class.ant-table-filter-open]="dropdown.nzVisible"
-              nzTrigger="click"
-              nzPlacement="bottomRight"
-              [nzClickHide]="false"
-              nzTableFilter
-            ></i>
-          </th>
+          <th nzCustomFilter> Customer Group No </th>
           <th>Customer Group Name </th>
           <th   >Description</th>
           <th   >Status</th>
@@ -123,20 +121,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of nzTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
+        <tr style="cursor: pointer !important;" *ngFor="let data of nzTable.data" (click)='getRowData(data)'>
+          <td>{{ data.customerGroupNo }}</td>
+          <td>{{ data.customerGroupName }}</td>
+          <td>{{ data.description }}</td>
+          <td>{{ data.isActive==='A'? "Active":"Inactive"}}</td>
+
         </tr>
       </tbody>
     </nz-table>
     <nz-dropdown-menu #menu="nzDropdownMenu">
       <div class="search-box">
-        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
-        <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
-          Search
-        </button>
-        <button nz-button nzSize="small" (click)="reset()">Reset</button>
+        <input type="text" nz-input placeholder="Search name" />
+
+        <button nz-button nzSize="small" >Reset</button>
       </div>
     </nz-dropdown-menu>
 

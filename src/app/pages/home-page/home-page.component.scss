@@ -70,11 +70,12 @@ nz-header {
 }
 
 nz-content {
-  margin: 24px;
+  margin: 4px;
+  // overflow-y: scroll !important;
 }
 
 .inner-content {
-  padding: 24px;
+  padding: 4px;
   background: #fff;
   height: 100%;
 }
