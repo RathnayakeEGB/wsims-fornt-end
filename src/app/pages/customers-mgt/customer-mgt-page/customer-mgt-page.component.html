@@ -1,3 +1,9 @@
+
+
+ <form nz-form [formGroup]="customersFb" class="login-form" >
+
+{{customersFb.value|json}}
+
 <div nz-row>
 
   <div nz-col nzXs="3" class="option" nzSm="3" nzMd="3" nzLg="3" nzXl="3">
@@ -24,6 +30,10 @@
 </div>
 
 
+
+
+
+
 <div nz-row>
 
 
@@ -31,44 +41,44 @@
 
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email"> Reg No</nz-form-label>
-      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="customerReqNo"> Reg No</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid Customer Registration Number !">
+        <input disabled='true' class="disable" nz-input id="customerReqNo" formControlName='customerReqNo' />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Name With Initails</nz-form-label>
-      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="nameWithInitials">Name With Initails</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid Name With Initails!">
+        <input nz-input id="nameWithInitials" formControlName='nameWithInitials' />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Full Name</nz-form-label>
-      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="fullName">Full Name</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid Full Name!">
+        <input nz-input id="fullName" formControlName='fullName' />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Address</nz-form-label>
-      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="address">Address</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid Address!">
+        <input nz-input id="address" formControlName ='address'/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">Address2</nz-form-label>
-      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="address2">Address2</nz-form-label>
+      <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid Address2!">
+        <input nz-input id="address2" formControlName='address2' />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
       <nz-form-label [nzSm]="5" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
       <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+        <input nz-input id="email" formControlName='email' />
       </nz-form-control>
     </nz-form-item>
 
@@ -85,9 +95,9 @@
 
     <br><br>
 
-    <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+    <!-- <nz-upload >
       <button nz-button><i nz-icon nzType="upload"></i><span>Select File</span></button>
-    </nz-upload>
+    </nz-upload> -->
 
      </nz-card>
 
@@ -102,38 +112,38 @@
   <div nz-col class="form-item-div" nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Nic</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="nic">Nic</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Nic!">
+        <input nz-input id="nic" formControlName='nic' />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Customer Type</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="groupId">Customer Type</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Customer Type!">
 
 
-        <nz-select class="cmb" nzMode="multiple" nzPlaceHolder="" [(ngModel)]="listOfSelectedValue">
-          <nz-option  *ngFor="let option of listOfOption"
-            [nzLabel]="option"
+        <nz-select class="cmb" formControlName='groupId'  nzPlaceHolder="" >
+          <nz-option  *ngFor="let option of listOfCusGroup"
+            [nzLabel]="option.customerGroupName "
             [nzValue]="option"
-            [nzHide]="!isNotSelected(option)" ></nz-option>
+            ></nz-option>
         </nz-select>
 
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Tele No</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="teleNo">Tele No</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Tele No!">
+        <input nz-input id="teleNo" formControlName='teleNo'/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Mobile No</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Mobile No!">
+        <input nz-input id="email" formControlName='mobileNo'/>
       </nz-form-control>
     </nz-form-item>
 
@@ -143,11 +153,10 @@
   <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="12" nzXl="12">
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Request Date</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="registeredDate">Request Date</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Request Date!">
 
-
-       <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+       <nz-date-picker [(ngModel)]="date" formControlName='registeredDate' ></nz-date-picker>
 
 
 
@@ -155,21 +164,21 @@
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="cemail">No of Family Members</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
-        <input nz-input id="email" />
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="noOfFamilyMembers">No of Family Members</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid No of Family Members!">
+        <input nz-input id="noOfFamilyMembers"formControlName='noOfFamilyMembers'  />
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Province</nz-form-label>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="province">Province</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
 
-        <nz-select class="cmb" nzMode="multiple" nzPlaceHolder="" [(ngModel)]="listOfSelectedValue">
-          <nz-option  *ngFor="let option of listOfOption"
+        <nz-select class="cmb" nzMode="multiple" nzPlaceHolder="" formControlName='province'>
+          <nz-option  *ngFor="let option of provinceList"
             [nzLabel]="option"
-            [nzValue]="option"
-            [nzHide]="!isNotSelected(option)" ></nz-option>
+            [nzValue]="option" >
+          </nz-option>
         </nz-select>
 
 
@@ -179,10 +188,10 @@
 
 
     <nz-form-item class="form-item">
-      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Status</nz-form-label>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="status">Status</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
 
-        <nz-radio-group [(ngModel)]="radioValue">
+        <nz-radio-group formControlName='status' >
           <label nz-radio nzValue="A">Active</label>
           <label nz-radio nzValue="B">Inactive</label>
         </nz-radio-group>
@@ -195,13 +204,15 @@
 
 </div>
 
+
+
 <div nz-row>
   <div nz-col nzXs="24" nzSm="24" nzMd="18" nzLg="18" nzXl="18">
 
   </div>
   <div nz-col nzXs="24" style="padding: 3px !important;" nzSm="24" nzMd="3" nzLg="3" nzXl="3">
 
-    <button nzBlock ='true' nz-button nzType="primary"><i nz-icon nzType="img:save"></i>Save</button>
+    <button disabled='!customersFb.valid' nzBlock ='true' nz-button nzType="primary"><i nz-icon nzType="img:save"></i>Save</button>
 
 
   </div>
@@ -218,7 +229,7 @@
 
   <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24">
 
-    <nz-table #nzTable [nzData]="listOfDisplayData" nzPageSize =7>
+    <nz-table #nzTable [nzData]="customerList" nzPageSize =7>
       <thead>
         <tr>
           <th nzCustomFilter>
@@ -253,11 +264,11 @@
     </nz-table>
     <nz-dropdown-menu #menu="nzDropdownMenu">
       <div class="search-box">
-        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
-        <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+        <input type="text" nz-input placeholder="Search name"  />
+        <button nz-button nzSize="small" nzType="primary" class="search-button">
           Search
         </button>
-        <button nz-button nzSize="small" (click)="reset()">Reset</button>
+        <button nz-button nzSize="small" >Reset</button>
       </div>
     </nz-dropdown-menu>
 
@@ -266,5 +277,4 @@
   </div>
 
 </div>
-
-
+</form>
