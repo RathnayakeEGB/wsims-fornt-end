@@ -4,6 +4,8 @@
 
 {{customersFb.value|json}}
 
+{{customersFb.invalid}}
+
 <div nz-row>
 
   <div nz-col nzXs="3" class="option" nzSm="3" nzMd="3" nzLg="3" nzXl="3">
@@ -136,14 +138,14 @@
     <nz-form-item class="form-item">
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="teleNo">Tele No</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Tele No!">
-        <input nz-input id="teleNo" formControlName='teleNo'/>
+        <input numbersOnly nz-input id="teleNo" formControlName='teleNo'/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item class="form-item">
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="email">Mobile No</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid Mobile No!">
-        <input nz-input id="email" formControlName='mobileNo'/>
+        <input numbersOnly nz-input id="email" formControlName='mobileNo'/>
       </nz-form-control>
     </nz-form-item>
 
@@ -166,7 +168,7 @@
     <nz-form-item class="form-item">
       <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="noOfFamilyMembers">No of Family Members</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid No of Family Members!">
-        <input nz-input id="noOfFamilyMembers"formControlName='noOfFamilyMembers'  />
+        <input numbersOnly nz-input id="noOfFamilyMembers"formControlName='noOfFamilyMembers'  />
       </nz-form-control>
     </nz-form-item>
 
@@ -174,10 +176,10 @@
       <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="province">Province</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
 
-        <nz-select class="cmb" nzMode="multiple" nzPlaceHolder="" formControlName='province'>
-          <nz-option  *ngFor="let option of provinceList"
-            [nzLabel]="option"
-            [nzValue]="option" >
+        <nz-select class="cmb"  nzPlaceHolder="" formControlName='province'>
+          <nz-option  *ngFor="let option of listOfProvince"
+            [nzLabel]="option.name"
+            [nzValue]="option.name" >
           </nz-option>
         </nz-select>
 
@@ -212,7 +214,7 @@
   </div>
   <div nz-col nzXs="24" style="padding: 3px !important;" nzSm="24" nzMd="3" nzLg="3" nzXl="3">
 
-    <button disabled='!customersFb.valid' nzBlock ='true' nz-button nzType="primary"><i nz-icon nzType="img:save"></i>Save</button>
+    <button (click)='saveUpdateCustomer()' [disabled]='customersFb.invalid' nzBlock ='true' nz-button nzType="primary"><i nz-icon nzType="img:save"></i>Save</button>
 
 
   </div>

@@ -25,6 +25,7 @@ import { UserMgtPageComponent } from './pages/user-mgt/user-mgt-page/user-mgt-pa
 import { CustomerGroupPageComponent } from './pages/customers-mgt/customer-group-page/customer-group-page.component';
 import { CustomerHomePageComponent } from './pages/customers-mgt/customer-home-page/customer-home-page.component';
 import { CustomerMgtPageComponent } from './pages/customers-mgt/customer-mgt-page/customer-mgt-page.component';
+import { OnlynumberDirective } from './shard/NumericDirective';
 
 
 registerLocaleData(en);
@@ -40,7 +41,8 @@ registerLocaleData(en);
     UserMgtPageComponent,
     CustomerGroupPageComponent,
     CustomerHomePageComponent,
-    CustomerMgtPageComponent
+    CustomerMgtPageComponent,
+    OnlynumberDirective
 
 
   ],
